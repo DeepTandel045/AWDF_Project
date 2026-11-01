@@ -2,11 +2,11 @@ process.env.NODE_ENV = "test";
 
 const request = require("supertest");
 const app = require("../server");
-const Task = require("../models/task");
+const Task = require("../models/Task");
 const cache = require("../cache");
 
 // Mock Task model find method so tests run isolated from MongoDB in CI
-jest.mock("../models/task", () => ({
+jest.mock("../models/Task", () => ({
     find: jest.fn().mockResolvedValue([
         { _id: "67246b1001", title: "Test Task 1", completed: false },
         { _id: "67246b1002", title: "Test Task 2", completed: true },
